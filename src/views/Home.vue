@@ -1,7 +1,8 @@
 <template>
     <RouterView/>
     <div ref="rightContent" @mousewheel="scrool" class="body1">
-        <div  class="top-widet">
+        
+        <div class="top-widet">
             <p><a @click="toAbout()">关于PYS THIRTEEN</a></p>
         </div>
         <div class="header-widet">
@@ -9,9 +10,12 @@
             <el-button class="header-button" @click="changeTab(index)" v-for="(tab,index) in tabs">{{tab.name}}</el-button>
             <RouterLink to="/login">登录/注册</RouterLink>
         </div>
-        <component class="com-widet" :is="currentTabComponent">
 
-        </component>
+        <KeepAlive>
+            <component class="com-widet" :is="currentTabComponent">
+            </component>
+        </KeepAlive>
+        
         
     </div>
    
@@ -20,8 +24,10 @@
 <script>
 import { Components } from 'ant-design-vue/lib/date-picker/generatePicker';
 import { ElButton } from 'element-plus';
-import About from './index/About.vue'
-import News from './index/News.vue'
+import About from '../views/index/About.vue'
+import News from '../views/index/News.vue'
+import Publish from '../views/index/Publish.vue'
+import Feedback from '../views/index/Feedback.vue'
     export default {
     name: "home",
     components: {
@@ -37,8 +43,8 @@ import News from './index/News.vue'
             currentTab: "About",
             tabs: [
                 {name:"NEWS",url:News}, 
-                {name:"发布",url:News}, 
-                {name:"反馈",url:News}, 
+                {name:"发布",url:Publish}, 
+                {name:"反馈",url:Feedback}, 
             ],
         };
     },
@@ -58,9 +64,9 @@ import News from './index/News.vue'
         },
         scrool(){
             let scrolled = this.$refs.rightContent.scrollTop;
-            console.log(scrolled)
+            // console.log(scrolled)
             if(scrolled>50){
-                console.log(123123)
+                
             }else{
             }
         } ,
@@ -84,6 +90,7 @@ import News from './index/News.vue'
         position:fixed;
         overflow-y:scroll;
         overflow-x:hidden;
+        z-index: 999;
     }
     .top-widet{
         width: 100%;
@@ -126,7 +133,7 @@ import News from './index/News.vue'
         top: -0.1px;
         display: flex;
         /* justify-content: flex-start; */
-
+        z-index: 9999;
        border-color: black;
         height: 70px;
         width: 100%;

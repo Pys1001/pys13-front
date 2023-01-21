@@ -279,7 +279,7 @@ h6 span {
 .card-back {
   width: 100%;
   height: 100%;
-  background-color: #B59D7C;
+  background-color: #FFE4B5;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
   background-position: bottom center;
   background-repeat: no-repeat;

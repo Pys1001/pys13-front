@@ -6,6 +6,7 @@ import router from './router/index'
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 
+
 import axios from 'axios'
 axios.defaults.baseURL = "/api"
 
@@ -13,6 +14,7 @@ createApp(App)
     .use(router)
     .use(ant)
     .use(ElementPlus)
+
     .mount('#app')
 
 

@@ -1,10 +1,13 @@
 <template>
-  <div class="body2">
+  <div class="body2"  v-show="$route.meta.showFooter">
+
     <p>
-      Welcome to pysthirteen!
+      欢迎登录本系统!
     </p>
-    <RouterLink to="/home">————————点 击 进 入————————</RouterLink>
+    <RouterLink to="/news" class="zxc">————————    点 击 进 入    ————————</RouterLink>
   </div>
+
+
   <RouterView/>
 </template>
 
@@ -31,14 +34,26 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .body2 {
-
+  width: 100%;
   position: fixed;
   font-family: 'Poppins', sans-serif;
   line-height: 1.7;
   color: #c4c3ca;
   overflow-x: hidden;
 }
-
+.body2 p{
+  font-size: 50px;
+  font-weight: 700;
+  color: white;
+  padding: 30px;
+}
+.zxc{
+  color: white;
+  position: fixed;
+  bottom: 100px;
+  width: 100%;
+  text-align: center;
+}
 </style>

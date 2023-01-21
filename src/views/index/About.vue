@@ -1,4 +1,5 @@
 <template>
+     <Header></Header>
     <div class="box-about">
         <div class="about-info">
             <h1>PYS THIRTEEN COMMUNITY</h1>
@@ -27,11 +28,17 @@
             <div class="about-padding"/>
         </div>
     </div>
-    
+    <Bottom></Bottom>
 </template>
 <script>
+import Header from '../../components/Header.vue'
+import Bottom from "@/components/Bottom.vue"
 export default {
     name: "About",
+    components:{
+        Header,
+        Bottom
+    },
     setup() {
         return {};
     },
@@ -42,7 +49,6 @@ export default {
     width: 100%;
     height: auto;
     background-color: white;
-  
 }
 .about-info{
     width: 78%;
